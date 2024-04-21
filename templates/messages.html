@@ -1,0 +1,11 @@
+{% for obj, score in myzip %}
+<br/>
+    {% if obj.user == request.user %}
+        <b>{{ obj.user }}:</b><li class="text-right list-group-item">{{ obj.message }}</li>
+        <p class="sentiment">Sentiment score = {{ score }}</p>  
+        {% else %}
+        <b>{{ obj.user }}:</b><li class="text-left list-group-item">{{ obj.message }}</li>
+    {% endif %}
+{% empty %}
+    <li class="text-right list-group-item">No messages yet!</li>
+{% endfor %}
